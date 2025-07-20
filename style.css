@@ -48,11 +48,13 @@ h1, h2, h3, h4, h5, h6 {
     --neutral2: #888888;
 }
 
+
 body {
     font-family: 'Inter';
     display: flex;
     flex-direction: column;
     height: 100vh;
+    color: var(--secondary-color);
 }
 
 header, main, footer{
@@ -60,9 +62,16 @@ header, main, footer{
     justify-content: center;
 }
 
+.habits {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
 .habit {
     display: flex;
     justify-content: center;
+    gap: 2vw;
 }
 
 main {
@@ -72,4 +81,10 @@ main {
 footer {
     margin-bottom: 1vh;
     color: var(--neutral2);
+}
+
+.header__heading {
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 10vh;
 }
