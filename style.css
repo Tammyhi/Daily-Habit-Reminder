@@ -50,10 +50,14 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     font-family: 'Inter';
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 header, main, footer{
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .habit {
@@ -61,3 +65,11 @@ header, main, footer{
     justify-content: center;
 }
 
+main {
+    flex-grow: 1;
+}
+
+footer {
+    margin-bottom: 1vh;
+    color: var(--neutral2);
+}
