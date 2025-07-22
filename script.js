@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     habits.addEventListener('click', (event) => {
         const incrementBtn = event.target.closest('.habit__btn--increment');
         const deleteBtn = event.target.closest('.habit__btn--delete');
+        const decrementBtn = event.target.closest('.habit__btn--decrement');
 
         if (incrementBtn) {
             const habitItem = event.target.closest('.habit');
@@ -99,13 +100,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 habitItem.remove();
             }
         }
+        else if (decrementBtn) {
+            const habitItem = event.target.closest('.habit');
+            if (habitItem) {
+                const countSpan = habitItem.querySelector('.habit__completed');
+                let count = parseInt(countSpan.textContent, 10);
+                if (count > 0) {
+                    count--;
+                    countSpan.textContent = count;
+                    if (count < parseInt(habitItem.querySelector('.habit__goal').textContent, 10)) {
+                        habitItem.style.backgroundColor = '';
+                    }
+                }
+            }
+        }
     });
 
     addHabit.addEventListener('click', (event) => {
         const addHabitBtn = event.target.closest('#addHabit__btn');
         if (addHabitBtn){
             const habitName = addHabitName.value.trim();
-            const habitGoal = addHabitGoal.value.trim();
+            let habitGoal = addHabitGoal.value.trim();
+            habitGoal = parseInt(habitGoal, 10);
             if (habitName && habitGoal > 0) {
                 const newHabit = createHabitElement(habitName, habitGoal);
                 habits.appendChild(newHabit);
