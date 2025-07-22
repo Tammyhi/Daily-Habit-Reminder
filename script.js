@@ -1,8 +1,9 @@
 const habits = document.getElementById('habits');
 const addHabit = document.getElementById('addHabit');
-const addHabitInput = document.getElementById('addHabit__input');
+const addHabitName = document.getElementById('addHabit__name');
+const addHabitGoal = document.getElementById('addHabit__goal');
 
-function createHabitElement(habitText) {
+function createHabitElement(habitText, habitGoal) {
     const habitEl = document.createElement('div');
     habitEl.classList.add('habit');
 
@@ -10,9 +11,19 @@ function createHabitElement(habitText) {
     deleteBtn.classList.add('habit__btn--delete');
     deleteBtn.innerHTML = '<i class="fa-solid fa-xmark" style="color: #ff0000;"></i>';
 
+    const habitCount = document.createElement('p');
+    habitCount.classList.add('habit__counted');
+
     const countSpan = document.createElement('span');
-    countSpan.classList.add('habit__count');
+    countSpan.classList.add('habit__completed');
     countSpan.textContent = '0';
+
+    const dividerSpan = document.createElement('span');
+    dividerSpan.textContent = '/';
+
+    const goalSpan = document.createElement('span');
+    goalSpan.classList.add('habit__goal');
+    goalSpan.textContent = habitGoal;
 
     const textSpan = document.createElement('span');
     textSpan.classList.add('habit__text');
@@ -23,7 +34,10 @@ function createHabitElement(habitText) {
     incrementBtn.innerHTML = '<i class="fa-solid fa-plus" style="color: #80ff00;"></i>';
 
     habitEl.appendChild(deleteBtn);
-    habitEl.appendChild(countSpan);
+    habitCount.appendChild(countSpan);
+    habitCount.appendChild(dividerSpan);
+    habitCount.appendChild(goalSpan);
+    habitEl.appendChild(habitCount);
     habitEl.appendChild(textSpan);
     habitEl.appendChild(incrementBtn);
     return habitEl;
@@ -37,10 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (incrementBtn) {
             const habitItem = event.target.closest('.habit');
             if (habitItem) {
-                const countSpan = habitItem.querySelector('.habit__count');
+                const countSpan = habitItem.querySelector('.habit__completed');
                 let count = parseInt(countSpan.textContent, 10);
                 count++;
                 countSpan.textContent = count;
+                const goalSpan = habitItem.querySelector('.habit__goal');
+                const goal = parseInt(goalSpan.textContent, 10);
+                if (count >= goal) {
+                    habitItem.style.backgroundColor = 'lightgreen';
+                }
             }
         }
         else if (deleteBtn) {
@@ -54,13 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
     addHabit.addEventListener('click', (event) => {
         const addHabitBtn = event.target.closest('#addHabit__btn');
         if (addHabitBtn){
-            const habitName = addHabitInput.value.trim();
-            if (habitName) {
-                const newHabit = createHabitElement(habitName);
+            const habitName = addHabitName.value.trim();
+            const habitGoal = addHabitGoal.value.trim();
+            if (habitName && habitGoal > 0) {
+                const newHabit = createHabitElement(habitName, habitGoal);
                 habits.appendChild(newHabit);
-                addHabitInput.value = '';
+                addHabitName.value = '';
             } else {
-                alert('Please enter a habit name.');
+                alert('Please enter a habit name and habit goal greater than 0.');
             }
         }
     });
