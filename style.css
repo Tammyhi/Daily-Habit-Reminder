@@ -62,7 +62,7 @@ header, main, footer{
     justify-content: center;
 }
 
-.habits {
+#habits {
     display: flex;
     flex-direction: column;
     gap: 3vh;
@@ -84,7 +84,7 @@ footer {
     color: var(--neutral2);
 }
 
-.header__heading {
+#header__heading1 {
     font-weight: 700;
     font-size: 2rem;
     padding: 10vh;
