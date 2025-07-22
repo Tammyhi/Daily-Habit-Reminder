@@ -73,6 +73,9 @@ header, main, footer{
     justify-content: center;
     gap: 2vw;
     align-items: center;
+    border: 2px solid var(--neutral1);
+    border-radius: 12px;
+    padding: clamp(5px, 2vw, 20px);
 }
 
 main {
