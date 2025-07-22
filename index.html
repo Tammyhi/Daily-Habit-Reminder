@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Habit Tracker</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -13,10 +14,15 @@
     <main>
         <section id="habits">
             <div class="habit">
-                <button class="btn--delete">x</button>
+                <button class="btn--delete">
+                    <i class="fa-solid fa-xmark" style="color: #ff0000;"></i>
+                </button>
                 <span class="habit__count">0</span>
                 <span class="habit__text">Example Habit</span>
-                <button class="btn--increment">+</button>
+                <button class="btn--increment">
+                    <i class="fa-solid fa-plus" style="color: #80ff00;"></i>
+                </button>
+                
             </div>
             
         </section>
