@@ -13,5 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 countSpan.textContent = count;
             }
         }
+        else if (target.classList.contains('btn--delete')) {
+            console.log('Delete button clicked');
+            const habitItem = target.closest('.habit');
+            if (habitItem) {
+                habitItem.remove();
+            }
+        }
     });
 });
