@@ -66,6 +66,7 @@ header, main, footer{
     display: flex;
     flex-direction: column;
     gap: 3vh;
+    align-items: center;
 }
 
 .habit {
@@ -80,6 +81,9 @@ header, main, footer{
 
 main {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 footer {
