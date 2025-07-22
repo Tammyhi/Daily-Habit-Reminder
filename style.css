@@ -93,7 +93,7 @@ footer {
     padding: 10vh;
 }
 
-.btn--delete, .btn--increment {
+.habit__btn--delete, .habit__btn--increment {
     width: 1rem;
     height: 1rem;
     display: inline-flex;

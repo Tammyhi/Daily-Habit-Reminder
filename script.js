@@ -2,8 +2,8 @@ const habits = document.getElementById('habits');
 
 document.addEventListener('DOMContentLoaded', () => {
     habits.addEventListener('click', (event) => {
-        const incrementBtn = event.target.closest('.btn--increment');
-        const deleteBtn = event.target.closest('.btn--delete');
+        const incrementBtn = event.target.closest('.habit__btn--increment');
+        const deleteBtn = event.target.closest('.habit__btn--delete');
         if (incrementBtn) {
             console.log('Increment button clicked');
             const habitItem = event.target.closest('.habit');
