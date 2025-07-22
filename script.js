@@ -43,6 +43,27 @@ function createHabitElement(habitText, habitGoal) {
     return habitEl;
 }
 
+function timeUntilMidnight() {
+    const now = new Date();
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+    return midnight - now;
+}
+function resetHabits() {
+    const habitsList = document.querySelectorAll('.habit');
+    habitsList.forEach(habit => {
+        const countSpan = habit.querySelector('.habit__completed');
+        countSpan.textContent = '0';
+        habit.style.backgroundColor = '';
+    });
+}
+
+function scheduleReset() {
+    setTimeout(() => {
+        resetHabits();
+        scheduleReset(); 
+    }, timeUntilMidnight());
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     habits.addEventListener('click', (event) => {
         const incrementBtn = event.target.closest('.habit__btn--increment');
@@ -84,4 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+    
+    scheduleReset();
 });
