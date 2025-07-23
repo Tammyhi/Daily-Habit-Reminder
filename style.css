@@ -108,7 +108,7 @@ footer {
     margin-left: clamp(4px, 2vw, 20px);
 }
 
-.habit, .reminder, #addHabit {
+.habit, .reminder, #addHabit, #addReminder {
     display: flex;
     justify-content: center;
     gap: 2vw;
@@ -136,6 +136,7 @@ input[type="time"] {
     outline: none;
     transition:all 0.2s;
     color: var(--secondary-color);
+    font-weight: 500;
 }
 
 input[type="time"]:hover {
