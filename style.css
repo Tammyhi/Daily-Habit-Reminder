@@ -41,11 +41,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /*CSS Custom Variables*/
 :root {
-    --primary-color: #f9f9f9;
-    --secondary-color: #0000FF;
-    --accent-color: #2ecc71;
-    --neutral1: #eaeaea;
-    --neutral2: #888888;
+    --primary-color: #eeecec;
+    --secondary-color: #002FFF;
+    --accent-color: #e0ff4f;
+    --neutral-light: #b1b1b1;
+    --neutral-dark: #000000;
 }
 
 
@@ -55,6 +55,7 @@ body {
     flex-direction: column;
     height: 100vh;
     color: var(--secondary-color);
+    background-color: var(--primary-color);
 }
 
 header{
@@ -71,7 +72,7 @@ main {
 
 footer {
     padding: clamp(4px, 2vw, 20px);
-    color: var(--neutral2);
+    color: var(--neutral-dark);
     display: flex;
     align-items: end;
     justify-content: center;
@@ -113,7 +114,7 @@ footer {
     justify-content: center;
     gap: 2vw;
     align-items: center;
-    border: 2px solid var(--neutral1);
+    border: 2px solid var(--neutral-light);
     border-radius: 12px;
     padding: clamp(4px, 2vw, 20px);
     margin: clamp(4px, 1vw, 20px);
@@ -129,6 +130,10 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+input {
+    background-color: transparent;
 }
 
 input[type="time"] {
