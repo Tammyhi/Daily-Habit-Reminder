@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 /*CSS Custom Variables*/
 :root {
     --primary-color: #f9f9f9;
-    --secondary-color: #2a2a2a;
+    --secondary-color: #0000FF;
     --accent-color: #2ecc71;
     --neutral1: #eaeaea;
     --neutral2: #888888;
@@ -66,8 +66,7 @@ header{
 
 main {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction:row;
 }
 
 footer {
@@ -129,4 +128,14 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+input[type="time"] {
+    border: none;
+    outline: none;
+    transition:all 0.2s;
+}
+
+input[type="time"]:hover {
+    border-bottom: 1px solid var(--secondary-color);
 }
