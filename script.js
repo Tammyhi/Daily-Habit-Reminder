@@ -37,10 +37,6 @@ function createHabitElement(habitText, habitGoal) {
     decrementBtn.classList.add('habit__btn--decrement');
     decrementBtn.innerHTML = '<i class="fa-solid fa-minus" style="color: #ff8000;"></i>';
 
-    const newReminderBtn = document.createElement('button');
-    newReminderBtn.classList.add('habit__btn--newReminder');
-    newReminderBtn.innerHTML = '<i class="fa-regular fa-clock"></i>';
-
     habitEl.appendChild(deleteBtn);
     habitCount.appendChild(countSpan);
     habitCount.appendChild(dividerSpan);
@@ -49,7 +45,6 @@ function createHabitElement(habitText, habitGoal) {
     habitEl.appendChild(textSpan);
     habitEl.appendChild(incrementBtn);
     habitEl.appendChild(decrementBtn);
-    habitEl.appendChild(newReminderBtn);
     return habitEl;
 }
 
@@ -131,6 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    addReminder.addEventListener('click', (event) => {
 
     scheduleReset();
 });
